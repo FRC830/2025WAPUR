@@ -18,16 +18,16 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
 void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
 {
     if(m_copilot.GetAButtonPressed()){
-        controlData.elevatorInput.level = 1;
+        controlData.elevatorInput.level = 0;
     }
     else if(m_copilot.GetBButtonPressed()){
-        controlData.elevatorInput.level = 2;
+        controlData.elevatorInput.level = 1;
     }
     else if(m_copilot.GetXButtonPressed()){
-        controlData.elevatorInput.level = 3;
+        controlData.elevatorInput.level = 2;
     }
     else if(m_copilot.GetYButtonPressed()){
-        controlData.elevatorInput.level = 4;
+        controlData.elevatorInput.level = 3;
     }
 }
 void ControllerInterface::UpdateNavxInput(RobotControlData &controlData)

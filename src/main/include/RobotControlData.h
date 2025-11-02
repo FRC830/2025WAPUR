@@ -4,7 +4,6 @@ struct SwerveInput{
     double xTranslation;
     double yTranslation;
     double rotation;
-
 };
 
 struct ResetNavx
@@ -12,17 +11,6 @@ struct ResetNavx
     bool reset;
 };
 
-struct ElevatorInput
-{
-    int level;
-
-};
-struct ElevatorOutput
-{
-    double speed;
-    bool movedToLevel;
-    double currentLevel;
-};
 
 struct SmartPlannerInput
 {
@@ -32,6 +20,16 @@ struct SmartPlannerInput
     bool Right_L2;
 };
 
+struct ElevatorInput{
+    int targetLevel;
+    int level;
+};
+
+struct ElevatorOutput{
+    bool IsComplete;
+    int presentLevel;
+};
+
 
 struct RobotControlData {
     SwerveInput swerveInput;
@@ -39,6 +37,6 @@ struct RobotControlData {
     ResetNavx resetNavx;
     ElevatorInput elevatorInput;
     ElevatorOutput elevatorOutput;
-};
 
+};
 
