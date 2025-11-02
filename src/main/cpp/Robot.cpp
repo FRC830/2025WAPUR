@@ -86,7 +86,9 @@ void Robot::AutonomousPeriodic() {
 
 void Robot::AutonomousExit() {}
 
+void Robot::TeleopInit() {
 
+}
 
 void Robot::TeleopPeriodic() {
 

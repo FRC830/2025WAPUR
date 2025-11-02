@@ -12,12 +12,12 @@ struct ResetNavx
     bool reset;
 };
 
-struct elevatorInput
+struct ElevatorInput
 {
     int level;
 
 };
-struct elevatorOutput
+struct ElevatorOutput
 {
     double speed;
     bool movedToLevel;
@@ -37,7 +37,8 @@ struct RobotControlData {
     SwerveInput swerveInput;
     SmartPlannerInput plannerInput;
     ResetNavx resetNavx;
-
+    ElevatorInput elevatorInput;
+    ElevatorOutput elevatorOutput;
 };
 
 
