@@ -1,5 +1,4 @@
-//todo#pragma once
-
+#pragma once
 #include "HAL/ClawHAL.h"
 #include "RobotControlData.h"
 #include <frc/Timer.h>
@@ -13,5 +12,4 @@ class ClawManager {
         void HandleInput(RobotControlData &robotControlData);
     private:
         Claw m_Claw;
-        frc::Timer m_matchTimer;
 };

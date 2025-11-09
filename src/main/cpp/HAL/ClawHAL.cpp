@@ -1,5 +1,5 @@
 
-#include "HAL/ClawHal.H"
+#include "HAL/ClawHal.h"
 #include <rev/SparkMax.h>
 
 Claw::Claw()
