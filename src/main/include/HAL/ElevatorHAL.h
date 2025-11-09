@@ -25,11 +25,11 @@ class Elevator
         
         // speed
         double m_speed = 0.0;
-        const double speed = 0.0;
+        const double speed = 0.20; //this is the speed elevator moves
         // level 1-4 height in rotations
         const double zero = 0.0;
-        const double one = 0.0;
-        const double two = 0.0;
-        const double three = 0.0;
-        const double offset = 0.0;
+        const double one = 2.727272727272727;
+        const double two = 5.454545454545454;
+        const double three = 8.181818181818182; 
+        const double offset = 0.09; //tolerance
 };

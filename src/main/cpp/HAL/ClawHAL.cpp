@@ -1,4 +1,3 @@
-//todo
 
 #include "HAL/ClawHal.H"
 #include <rev/SparkMax.h>
