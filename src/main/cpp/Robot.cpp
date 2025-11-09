@@ -12,10 +12,17 @@
 #include "MechanismConfig.h"
 #include <pathplanner/lib/auto/NamedCommands.h>
 
+#include "cmds/LevelZero.h"
+#include "cmds/ClawIn.h"
+#include "cmds/ClawOut.h"
+
 Robot::Robot() {
   m_cam = std::make_shared<PhotonVisionCamera>("Arducam_OV9281_USB_Camera", ratbot::VisionConfig::ROBOT_TO_CAMERA);
   
-  
+
+  pathplanner::NamedCommands::registerCommand("level 0", std::make_shared<LevelZero>(_robot_control_data));
+  //pathplanner::NamedCommands::registerCommand("claw in", std::make_shared<ClawIn>(_robot_control_data));
+  //pathplanner::NamedCommands::registerCommand("claw out", std::make_shared<ClawOut>(_robot_control_data));
   SwerveInit();
 
   m_smartPlanner = std::make_shared<SmartPlanner>(*m_cam, _swerve);

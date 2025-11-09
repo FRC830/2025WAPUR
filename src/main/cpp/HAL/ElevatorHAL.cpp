@@ -70,13 +70,12 @@ void Elevator::SetElevatorLevel(int level)
     {
         m_speed = 0; //stop
     }
-
-
+    m_level = level;
     m_elevatorMotor.Set(m_speed);
 }
 
 int Elevator::GetElevatorLevel()
 {
     //code to get elevator level
-    return 0;
+    return m_level;
 }

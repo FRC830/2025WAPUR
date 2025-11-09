@@ -32,4 +32,5 @@ class Elevator
         const double two = 5.454545454545454;
         const double three = 8.181818181818182; 
         const double offset = 0.09; //tolerance
+        int m_level = 0;
 };
