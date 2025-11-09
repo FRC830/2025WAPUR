@@ -91,7 +91,10 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-
+   _controller_interface.UpdateRobotControlData(_robot_control_data);
+  _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
+  m_elevator.HandleInput(_robot_control_data);
+  m_claw.HandleInput(_robot_control_data);  
 }
 
 void Robot::TeleopExit() {}

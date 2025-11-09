@@ -29,7 +29,9 @@ struct ElevatorOutput{
     bool IsComplete;
     int presentLevel;
 };
-
+struct ClawInput{
+    int ClawState;
+};
 
 struct RobotControlData {
     SwerveInput swerveInput;
@@ -37,6 +39,6 @@ struct RobotControlData {
     ResetNavx resetNavx;
     ElevatorInput elevatorInput;
     ElevatorOutput elevatorOutput;
-
+    ClawInput clawInput;
 };
 

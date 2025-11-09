@@ -18,6 +18,9 @@
 #include "ratpack/swerve/WPISwerveModule.h"
 #include "ratpack/swerve/WPISwerveDrive.h"
 
+#include "InputManager/ClawManager.h"
+#include "InputManager/ElevatorManager.h"
+
 #include "PhotonVisionCamera.h"
 #include "ControllerInterface.h"
 #include "RobotControlData.h"
@@ -71,4 +74,6 @@ class Robot : public frc::TimedRobot {
   std::shared_ptr<SmartPlanner> m_smartPlanner;
 
 
+  ClawManager m_claw;
+  ElevatorManager m_elevator;
 };

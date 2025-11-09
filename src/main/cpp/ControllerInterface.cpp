@@ -6,6 +6,8 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
     UpdateSwerveInput(controlData);
     UpdateSmartplannerInput(controlData);
     UpdateNavxInput(controlData);
+    UpdateElevatorInput(controlData);
+    UpdateClawInput(controlData);  
 
     // code for the VibrateController function
     if (m_timer.Get().value()>=m_globalDuration)
@@ -45,9 +47,21 @@ void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
 
  
 }
+
 #include <iostream>
 
-    
+void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
+{
+    if(m_copilot.GetLeftY() < -0.1){
+        controlData.clawInput.ClawState = -1; // Intake
+    }
+    else if(m_copilot.GetLeftY() > 0.1){
+        controlData.clawInput.ClawState = 1; // Outtake
+    }
+    else{
+        controlData.clawInput.ClawState = 0; // Stop
+    }
+}
 
 
 
