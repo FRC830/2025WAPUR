@@ -33,6 +33,10 @@ struct ClawInput{
     int ClawState;
 };
 
+struct LauncherInput{
+    int LauncherState;
+};
+
 struct RobotControlData {
     SwerveInput swerveInput;
     SmartPlannerInput plannerInput;
@@ -40,5 +44,6 @@ struct RobotControlData {
     ElevatorInput elevatorInput;
     ElevatorOutput elevatorOutput;
     ClawInput clawInput;
+    LauncherInput launcherInput;
 };
 
