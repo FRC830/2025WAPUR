@@ -26,7 +26,7 @@ struct ElevatorInput{
 };
 
 struct ElevatorOutput{
-    bool IsComplete;
+    bool isComplete;
     int presentLevel;
 };
 struct ClawInput{

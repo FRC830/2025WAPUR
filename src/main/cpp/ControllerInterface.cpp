@@ -15,7 +15,7 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
         m_pilot.SetRumble(frc::GenericHID::RumbleType::kLeftRumble, 0.0);
         m_pilot.SetRumble(frc::GenericHID::RumbleType::kRightRumble, 0.0);
     }
-};
+}
 
 void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
 {
