@@ -2,6 +2,7 @@
 
 #include <rev/SparkMax.h>
 #include "CanConfig.h"
+#include <frc/Servo.h>
 
 class Ball{
     public:
@@ -12,6 +13,6 @@ class Ball{
         void SetSecondHatchState(int dir);
         
     private:
-        rev::spark::SparkMax m_FirstHatchMotor{FIRST_HATCH_ID, rev::spark::SparkMax::MotorType::kBrushless};
-        rev::spark::SparkMax m_SecondHatchMotor{SECOND_HATCH_ID, rev::spark::SparkMax::MotorType::kBrushless};
+        frc::Servo m_FirstHatchMotor{FIRST_HATCH_ID};
+        frc::Servo m_SecondHatchMotor{SECOND_HATCH_ID};
 };

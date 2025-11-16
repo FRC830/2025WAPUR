@@ -29,19 +29,21 @@ void BallManager::releaseOneBall() {
         case 1:
         {    
             if (m_ballTimer.Get() > (units::time::second_t) 0.25) {
-                m_ball.SetSecondHatchState(-1);
+                m_ball.SetSecondHatchState(0);
                 m_ball.SetFirstHatchState(1);
                 ballTimerState = 2;
                 m_ballTimer.Reset();
                 break;
             }
+        }
+        case 2:
+        {
             m_ball.SetSecondHatchState(0);
             m_ballTimer.Reset();
             m_ball.SetFirstHatchState(0);
             m_ball.SetSecondHatchState(0);
-            break;
+            ballTimerState = -1;
         }
-        
     default:
         break;
     }
