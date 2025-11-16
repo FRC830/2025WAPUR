@@ -7,7 +7,8 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
     UpdateSmartplannerInput(controlData);
     UpdateNavxInput(controlData);
     UpdateElevatorInput(controlData);
-    UpdateClawInput(controlData);  
+    UpdateClawInput(controlData); 
+    UpdateLauncherInput(controlData); 
 
     // code for the VibrateController function
     if (m_timer.Get().value()>=m_globalDuration)
@@ -32,9 +33,27 @@ void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
         controlData.elevatorInput.level = 3;
     }
 }
+
 void ControllerInterface::UpdateNavxInput(RobotControlData &controlData)
 {
     controlData.resetNavx.reset = m_pilot.GetStartButtonPressed();
+}
+
+void ControllerInterface::UpdateLauncherInput(RobotControlData &controlData)
+{
+    if(m_copilot.GetLeftBumperPressed())
+    {
+        controlData.launcherInput.LauncherState = 1;
+    } 
+    else if(m_copilot.GetRightBumperPressed()) 
+    {
+        controlData.launcherInput.LauncherState = 2;
+    } 
+    else 
+    {
+        controlData.launcherInput.LauncherState = 0;
+    }
+   
 }
 
 void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
