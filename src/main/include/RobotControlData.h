@@ -29,8 +29,18 @@ struct ElevatorOutput{
     bool isComplete;
     int presentLevel;
 };
+
 struct ClawInput{
     int ClawState;
+};
+
+struct BallInput{
+    enum HatchState {
+        RELEASE_NONE = 0,
+        RELEASE_ONE = 1,
+        RELEASE_ALL = 2
+    };
+    HatchState hatchState;
 };
 
 struct RobotControlData {
@@ -40,5 +50,6 @@ struct RobotControlData {
     ElevatorInput elevatorInput;
     ElevatorOutput elevatorOutput;
     ClawInput clawInput;
+    BallInput ballInput;
 };
 

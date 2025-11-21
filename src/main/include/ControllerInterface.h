@@ -16,6 +16,7 @@ class ControllerInterface
         void UpdateNavxInput(RobotControlData &controlData);
         void UpdateElevatorInput(RobotControlData &controlData);
         void UpdateClawInput(RobotControlData &controlData);
+        void UpdateBallInput(RobotControlData &controlData);
 
         frc::XboxController m_pilot{0};
         frc::XboxController m_copilot{1};

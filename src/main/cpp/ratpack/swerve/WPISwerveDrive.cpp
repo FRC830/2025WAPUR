@@ -113,7 +113,7 @@ void WPISwerveDrive::Drive(std::vector<frc::SwerveModuleState> &state) {
         if (m_shouldSwerveLock)
         {
             bool lockSwerveModules = true;
-            for (int i = 0; i < state.size(); i++)
+            for (int i = 0; i < int(state.size()); i++)
             {
                 lockSwerveModules = lockSwerveModules && (std::fabs(double(state[i].speed) < 0.01));
             }
@@ -127,7 +127,7 @@ void WPISwerveDrive::Drive(std::vector<frc::SwerveModuleState> &state) {
             }
         }
 
-        for(int i = 0; i < state.size(); i++){
+        for(int i = 0; i < int(state.size()); i++){
             m_modules[i]->SetState(state[i]);
         }
     }
@@ -150,7 +150,7 @@ bool WPISwerveDrive::GetIdleMode() {
 }
 
 void WPISwerveDrive::SetIdleMode(bool idle_mode) {
-     for(int i = 0; i < m_modules.size(); i++){
+     for(int i = 0; i < int(m_modules.size()); i++){
 
         m_modules[i]->SetIdleMode(idle_mode);
 

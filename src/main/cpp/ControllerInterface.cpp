@@ -32,6 +32,20 @@ void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
         controlData.elevatorInput.level = 3;
     }
 }
+
+void ControllerInterface::UpdateBallInput(RobotControlData &controlData)
+{
+    if(m_copilot.GetRightBumperButtonPressed()){
+        controlData.ballInput.hatchState = BallInput::RELEASE_ALL; // Release ALL balls
+    }
+    else if(m_copilot.GetLeftBumperButtonPressed()){
+        controlData.ballInput.hatchState = BallInput::RELEASE_ONE; // Release ONE balls
+    }
+    else{
+        controlData.ballInput.hatchState = BallInput::RELEASE_NONE; // Do not release balls
+    }
+}
+
 void ControllerInterface::UpdateNavxInput(RobotControlData &controlData)
 {
     controlData.resetNavx.reset = m_pilot.GetStartButtonPressed();
@@ -47,8 +61,6 @@ void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
 
  
 }
-
-#include <iostream>
 
 void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
 {

@@ -13,63 +13,29 @@ void Elevator::SetElevatorLevel(int level)
 {
     //code to set elevator level
 
-    double pos = m_elevatorMotor.GetEncoder().GetPosition();
+    double current_pos = m_elevatorMotor.GetEncoder().GetPosition();
 
-
-    if (level == 0)
+    if (level >= int(k_levels.size()) || level < 0)
     {
-        if (pos > zero + offset)
-        {
-            m_speed = speed; //move up
-        }
-        else
-        {
-            m_speed = 0; //stop
-        }
+        m_speed = 0; //invalid level, stop motor
     }
-    else if (level == 1)
+    else if (k_levels[level] > current_pos + k_tolerance)
     {
-        if (pos > one + offset)
-        {
-            m_speed = -speed; //move down
-        }
-        else if (pos < one -offset)
-        { 
-            m_speed = speed; //move up
-        }
-        else{
-            m_speed = 0; //stop
-        }
+        //target level is above current position
+        m_speed = -k_speed; //move down
     }
-    else if (level == 2)
+    else if (k_levels[level] < current_pos - k_tolerance)
     {
-        if (pos > two + offset)
-        {
-            m_speed = -speed; //move down
-        }
-        else if (pos < two - offset)
-        {
-            m_speed = speed; //move up
-        }        
-        else{
-            m_speed = 0; //stop
-        }
-    }
-    else if (level == 3)
-    {    
-        if (pos < three - offset)
-        {
-           m_speed = speed; //move up
-        }
-        else
-        {
-            m_speed = 0; //stop
-        }
+        //target level is below current position
+        m_speed = k_speed; //move up
     }
     else
     {
+        //target level is within tolerance
         m_speed = 0; //stop
     }
+
+
     m_level = level;
     m_elevatorMotor.Set(m_speed);
 }
