@@ -8,7 +8,7 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
     UpdateNavxInput(controlData);
     UpdateElevatorInput(controlData);
     UpdateClawInput(controlData); 
-    UpdateLauncherInput(controlData); 
+    UpdateBallInput(controlData); 
 
     // code for the VibrateController function
     if (m_timer.Get().value()>=m_globalDuration)
@@ -52,23 +52,6 @@ void ControllerInterface::UpdateNavxInput(RobotControlData &controlData)
     controlData.resetNavx.reset = m_pilot.GetStartButtonPressed();
 }
 
-void ControllerInterface::UpdateLauncherInput(RobotControlData &controlData)
-{
-    if(m_copilot.GetLeftBumperPressed())
-    {
-        controlData.launcherInput.LauncherState = 1;
-    } 
-    else if(m_copilot.GetRightBumperPressed()) 
-    {
-        controlData.launcherInput.LauncherState = 2;
-    } 
-    else 
-    {
-        controlData.launcherInput.LauncherState = 0;
-    }
-   
-}
-
 void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
 {  
     
@@ -82,6 +65,12 @@ void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
 
 void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
 {
+    if(m_copilot.GetRightTriggerAxis()>0.1){
+        controlData.clawInput.WiggleState = 1; // Wiggle
+    }
+    else{
+        controlData.clawInput.WiggleState = 0; // No Wiggle
+    }
     if(m_copilot.GetLeftY() < -0.1){
         controlData.clawInput.ClawState = -1; // Intake
     }

@@ -9,6 +9,8 @@ class Claw{
         ~Claw() = default;
         
         void ClawIntake(int dir);
+        void RightIntake(int dir);
+        void LeftIntake(int dir);
         
     private:
         rev::spark::SparkMax m_clawMotorA{CLAW_MOTOR_A_ID, rev::spark::SparkMax::MotorType::kBrushless};

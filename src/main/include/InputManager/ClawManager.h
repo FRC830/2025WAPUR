@@ -12,4 +12,6 @@ class ClawManager {
         void HandleInput(RobotControlData &robotControlData);
     private:
         Claw m_Claw;
+        frc::Timer m_wiggleTimer;
+        int m_WiggleState = 0;
 };
