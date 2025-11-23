@@ -16,7 +16,7 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
         m_pilot.SetRumble(frc::GenericHID::RumbleType::kLeftRumble, 0.0);
         m_pilot.SetRumble(frc::GenericHID::RumbleType::kRightRumble, 0.0);
     }
-};
+}
 
 void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
 {
@@ -31,6 +31,19 @@ void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
     }
     else if(m_copilot.GetYButtonPressed()){
         controlData.elevatorInput.level = 3;
+    }
+}
+
+void ControllerInterface::UpdateBallInput(RobotControlData &controlData)
+{
+    if(m_copilot.GetRightBumperButtonPressed()){
+        controlData.ballInput.hatchState = BallInput::RELEASE_ALL; // Release ALL balls
+    }
+    else if(m_copilot.GetLeftBumperButtonPressed()){
+        controlData.ballInput.hatchState = BallInput::RELEASE_ONE; // Release ONE balls
+    }
+    else{
+        controlData.ballInput.hatchState = BallInput::RELEASE_NONE; // Do not release balls
     }
 }
 
@@ -66,8 +79,6 @@ void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
 
  
 }
-
-#include <iostream>
 
 void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
 {
