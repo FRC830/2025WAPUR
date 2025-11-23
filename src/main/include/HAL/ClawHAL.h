@@ -16,5 +16,5 @@ class Claw{
 
         // speed
         double m_speed = 0.0;
-        const double speed = 0.0;
+        const double speed = 0.2;
 };
