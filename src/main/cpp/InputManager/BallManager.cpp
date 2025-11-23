@@ -68,7 +68,6 @@ void BallManager::releaseOneBall() {
         m_ball.SetFirstHatchState(0);
     }
     default:
-
         break;
     }
 }

@@ -1,5 +1,5 @@
 
-#include "HAL/ClawHal.h"
+#include "HAL/ClawHAL.h"
 #include <rev/SparkMax.h>
 
 Claw::Claw()
@@ -7,6 +7,6 @@ Claw::Claw()
     //Constuc
 }
 void Claw::ClawIntake(int dir){
-    m_clawMotorA.Set(dir*speed);
-    m_clawMotorB.Set(-dir*speed);
+    m_clawMotorA.Set(-dir*speed);
+    m_clawMotorB.Set(dir*speed);
 }
