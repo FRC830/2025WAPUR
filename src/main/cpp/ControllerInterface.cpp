@@ -77,13 +77,9 @@ void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
     else if(m_copilot.GetLeftY() > 0.1){
         controlData.clawInput.ClawState = 1; // Outtake
     }
-    else if(m_copilot.GetLeftTriggerAxis() > 0)
+    else if(m_copilot.GetLeftTriggerAxis() > 0.2)
     {
         controlData.clawInput.ClawState = 0.5; // Slow outtake
-    }
-    else if(m_copilot.GetLeftTriggerAxis() < 0)
-    {
-        controlData.clawInput.ClawState = -0.5; // Slow intake
     }
     else{
         controlData.clawInput.ClawState = 0; // Stop
