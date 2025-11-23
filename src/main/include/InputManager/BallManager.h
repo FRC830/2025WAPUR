@@ -13,6 +13,7 @@ class BallManager {
         Ball m_ball;
         void releaseOneBall();
         void releaseAll();
+        void closeHatch();
         frc::Timer m_ballTimer;
         int ballTimerState = 0;
 };

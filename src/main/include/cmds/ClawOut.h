@@ -2,6 +2,7 @@
 
 #include <frc2/command/CommandHelper.h>
 #include "RobotControlData.h"
+#include <frc/Timer.h>
 
 class ClawOut : public frc2::CommandHelper<frc2::Command, ClawOut>
 {
@@ -16,4 +17,6 @@ public:
 
 private:
     RobotControlData& m_robotControlData;
+    frc::Timer m_timer;
+    const double k_clawOutDuration = 0.2; 
 };
