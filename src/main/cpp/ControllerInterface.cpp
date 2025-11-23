@@ -77,6 +77,14 @@ void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
     else if(m_copilot.GetLeftY() > 0.1){
         controlData.clawInput.ClawState = 1; // Outtake
     }
+    else if(m_copilot.GetLeftTriggerAxis() > 0)
+    {
+        controlData.clawInput.ClawState = 0.5; // Slow outtake
+    }
+    else if(m_copilot.GetLeftTriggerAxis() < 0)
+    {
+        controlData.clawInput.ClawState = -0.5; // Slow intake
+    }
     else{
         controlData.clawInput.ClawState = 0; // Stop
     }
@@ -86,17 +94,17 @@ void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
 
 void ControllerInterface::UpdateSmartplannerInput(RobotControlData &controlData)
 {
-   // if (m_copilot.GetLeftTriggerAxis() > 0.1) {controlData.plannerInput.Left_L1 = true;}
-   // else if (m_copilot.GetRightTriggerAxis() > 0.1) {controlData.plannerInput.Right_L1 = true;}
-    if (m_copilot.GetLeftTriggerAxis() > 0.1) {controlData.plannerInput.Left_L2 = true;}
-    else if (m_copilot.GetRightTriggerAxis() > 0.1) {controlData.plannerInput.Right_L2 = true;}
-    else 
-    {
-        controlData.plannerInput.Left_L1 = false;
-        controlData.plannerInput.Left_L2 = false;
-        controlData.plannerInput.Right_L1 = false;
-        controlData.plannerInput.Right_L2 = false;
-    }
+//    // if (m_copilot.GetLeftTriggerAxis() > 0.1) {controlData.plannerInput.Left_L1 = true;}
+//    // else if (m_copilot.GetRightTriggerAxis() > 0.1) {controlData.plannerInput.Right_L1 = true;}
+//     if (m_copilot.GetLeftTriggerAxis() > 0.1) {controlData.plannerInput.Left_L2 = true;}
+//     else if (m_copilot.GetRightTriggerAxis() > 0.1) {controlData.plannerInput.Right_L2 = true;}
+//     else 
+//     {
+//         controlData.plannerInput.Left_L1 = false;
+//         controlData.plannerInput.Left_L2 = false;
+//         controlData.plannerInput.Right_L1 = false;
+//         controlData.plannerInput.Right_L2 = false;
+//     }
 
 }
 

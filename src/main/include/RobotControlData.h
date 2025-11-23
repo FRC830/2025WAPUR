@@ -30,7 +30,7 @@ struct ElevatorOutput{
     int presentLevel;
 };
 struct ClawInput{
-    int ClawState;
+    double ClawState;
 };
 
 struct LauncherInput{
