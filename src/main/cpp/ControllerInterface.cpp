@@ -62,7 +62,6 @@ void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
 
  
 }
-
 void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
 {
     if(m_copilot.GetRightTriggerAxis()>0.1){
@@ -71,19 +70,30 @@ void ControllerInterface::UpdateClawInput(RobotControlData &controlData)
     else{
         controlData.clawInput.WiggleState = 0; // No Wiggle
     }
-    if(m_copilot.GetLeftY() < -0.1){
-        controlData.clawInput.ClawState = -1; // Intake
-    }
-    else if(m_copilot.GetLeftY() > 0.1){
-        controlData.clawInput.ClawState = 1; // Outtake
-    }
-    else if(m_copilot.GetLeftTriggerAxis() > 0.2)
+
+
+    if(m_copilot.GetLeftTriggerAxis() > 0.1 && m_copilot.GetLeftY() < -0.1)
     {
-        controlData.clawInput.ClawState = 0.5; // Slow outtake
+        controlData.clawInput.ClawState = -1; // Slow intake
+    }
+    else if(m_copilot.GetLeftTriggerAxis() > 0.1 && m_copilot.GetLeftY() > 0.1)
+    {
+        controlData.clawInput.ClawState = 1; // Slow outtake
     }
     else{
-        controlData.clawInput.ClawState = 0; // Stop
+        if(m_copilot.GetLeftY() < -0.1){
+            controlData.clawInput.ClawState = -1; // Intake
+        }
+        else if(m_copilot.GetLeftY() > 0.1){
+            controlData.clawInput.ClawState = 1; // Outtake
+        }
+        else{
+            controlData.clawInput.ClawState = 0;
+        }
     }
+
+
+
 }
 
 

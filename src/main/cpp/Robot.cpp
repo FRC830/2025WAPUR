@@ -102,6 +102,7 @@ void Robot::TeleopPeriodic() {
   _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
   m_elevator.HandleInput(_robot_control_data);
   m_claw.HandleInput(_robot_control_data);  
+  m_ballLauncher.HandleInput(_robot_control_data);
 }
 
 void Robot::TeleopExit() {}

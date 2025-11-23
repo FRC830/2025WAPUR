@@ -15,5 +15,8 @@ class BallManager {
         void releaseAll();
         void closeHatch();
         frc::Timer m_ballTimer;
+        frc::Timer m_ballTimer2;
         int ballTimerState = 0;
+        int ballTimer2State = 0;
+        int releaseState = 0;
 };

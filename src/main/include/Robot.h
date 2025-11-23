@@ -20,6 +20,7 @@
 
 #include "InputManager/ClawManager.h"
 #include "InputManager/ElevatorManager.h"
+#include "InputManager/BallManager.h"
 
 #include "PhotonVisionCamera.h"
 #include "ControllerInterface.h"
@@ -76,4 +77,5 @@ class Robot : public frc::TimedRobot {
 
   ClawManager m_claw;
   ElevatorManager m_elevator;
+  BallManager m_ballLauncher;
 };

@@ -31,7 +31,7 @@ struct ElevatorOutput{
 };
 
 struct ClawInput{
-    int ClawState;
+    double ClawState;
     int WiggleState;
 };
 
