@@ -1,7 +1,6 @@
 
 #include "HAL/BallHAL.h"
 #include <rev/SparkMax.h>
-#include <iostream>
 
 Ball::Ball() {
     //Constructor
@@ -9,9 +8,9 @@ Ball::Ball() {
 
 void Ball::SetFirstHatchState(int state){
     m_FirstHatchMotor.SetAngle(state*90);
-    std::cout << "first hatch" << std::endl;
+    //std::cout << "first hatch" << std::endl;
 }
 void Ball::SetSecondHatchState(int state){
     m_SecondHatchMotor.SetAngle(state*90);
-    std::cout << "second hatch" << std::endl;
+    //std::cout << "second hatch" << std::endl;
 }

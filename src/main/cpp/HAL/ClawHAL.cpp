@@ -6,7 +6,7 @@ Claw::Claw()
 {
     //Constuc
 }
-void Claw::ClawIntake(int dir){
+void Claw::ClawIntake(double dir){
     m_clawMotorA.Set(-dir*speed);
     m_clawMotorB.Set(dir*speed);
 }
@@ -16,3 +16,4 @@ void Claw::RightIntake(int dir){
 void Claw::LeftIntake(int dir){
     m_clawMotorB.Set(dir*speed);
 }
+ 

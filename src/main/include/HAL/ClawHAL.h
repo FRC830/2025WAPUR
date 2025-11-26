@@ -8,7 +8,7 @@ class Claw{
         Claw();
         ~Claw() = default;
         
-        void ClawIntake(int dir);
+        void ClawIntake(double dir);
         void RightIntake(int dir);
         void LeftIntake(int dir);
         
