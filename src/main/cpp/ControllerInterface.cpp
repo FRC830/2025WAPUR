@@ -32,6 +32,9 @@ void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
     else if(m_copilot.GetYButtonPressed()){
         controlData.elevatorInput.level = 3;
     }
+    /*
+    
+    */
 }
 
 void ControllerInterface::UpdateBallInput(RobotControlData &controlData)

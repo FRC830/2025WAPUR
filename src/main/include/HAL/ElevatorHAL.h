@@ -15,7 +15,7 @@ class Elevator
         //functions the elvator has
         void SetElevatorLevel(int level);
         int GetElevatorLevel();
-
+        void runElevator(int state);
     private:
         //neo motor 
         // ELEVATOR_MOTOR_ID
