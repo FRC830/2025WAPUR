@@ -76,6 +76,7 @@ void BallManager::releaseAll() {
 }
 
 void BallManager::releaseOneBall() {
+    
     switch (ballTimerState) {
     case 0:
     {
@@ -88,7 +89,7 @@ void BallManager::releaseOneBall() {
     {
         if (releaseState == 0){
             ballTimerState = 2;
-            std::cout << releaseState << std::endl;
+            //std::cout << releaseState << std::endl;
             break;
         }
         if (m_ballTimer.Get() > (units::time::second_t) 0.4) { //time elapsed check

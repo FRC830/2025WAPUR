@@ -22,12 +22,12 @@ void Elevator::SetElevatorLevel(int level)
     else if (k_levels[level] > current_pos + k_tolerance)
     {
         //target level is above current position
-        m_speed = -k_speed; //move down
+        m_speed = k_speed; //move up
     }
     else if (k_levels[level] < current_pos - k_tolerance)
     {
         //target level is below current position
-        m_speed = k_speed; //move up
+        m_speed = -k_speed; //move down
     }
     else
     {
