@@ -5,6 +5,7 @@
 #include <rev/SparkMax.h>
 #include "CanConfig.h"
 #include <array>
+#include <frc/DigitalInput.h>
 
 class Elevator
 {
@@ -19,20 +20,21 @@ class Elevator
     private:
         //neo motor 
         // ELEVATOR_MOTOR_ID
+        frc::DigitalInput m_Limit{0};
         rev::spark::SparkMax m_elevatorMotor{ELEVATOR_MOTOR_ID, rev::spark::SparkMax::MotorType::kBrushless};
               
         //variables u needa use
         
         // speed
         double m_speed = 0.0;
-        const double k_speed = 0.20; //this is the speed elevator moves
-        // level 1-4 height in rotations
+        const double k_speed = 0.25; //this is the speed elevator moves
+        // level 1-4 height in degrees
         const double level_zero = 0.0;
-        const double level_one = 2.727272727272727;
-        const double level_two = 5.454545454545454;
-        const double level_three = 8.181818181818182; 
-        const double k_tolerance = 0.09; //tolerance
-
-        const std::array <double, 4> k_levels = {level_zero, level_one, level_two, level_three};
+        const double level_one = -5.172413*360;
+        const double level_two = -10.344827 * 360;
+        const double level_three = -15.327586 * 360; 
+        const double k_tolerance = 15; //tolerance
+        double offset =  0 * 360;
+        std::array <double, 4> k_levels = {level_zero + offset, level_one + offset, level_two + offset, level_three + offset};
         int m_level = 0;
 };

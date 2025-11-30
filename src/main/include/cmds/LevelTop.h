@@ -4,11 +4,12 @@
 #include "RobotControlData.h"
 #include "HAL/ElevatorHAL.h"
 
-class LevelZero : public frc2::CommandHelper<frc2::Command, LevelZero>
+
+class LevelTop : public frc2::CommandHelper<frc2::Command, LevelTop>
 {
 public:
-    explicit LevelZero(RobotControlData& data);
-    ~LevelZero() = default;
+    explicit LevelTop(RobotControlData& data);
+    ~LevelTop() = default;
 
     void Initialize() override;
     void Execute() override;
@@ -17,5 +18,5 @@ public:
 
 private:
     RobotControlData& m_robotControlData;
-    //Elevator el2;
+    //Elevator el;
 };

@@ -15,6 +15,6 @@ class Ball{
     private:
         frc::Servo m_FirstHatchMotor{FIRST_HATCH_ID};
         frc::Servo m_SecondHatchMotor{SECOND_HATCH_ID};
-        const int FIRSTZERO = 0;
-        const int SECONDZERO = 90;
+        const int FIRSTZERO = 180;
+        const int SECONDZERO = 180;
 };

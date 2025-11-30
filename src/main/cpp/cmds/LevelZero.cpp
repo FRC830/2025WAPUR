@@ -1,5 +1,7 @@
 #include "cmds/LevelZero.h"
 #include "MechanismConfig.h"
+#include "HAL/ElevatorHAL.h"
+
 
 LevelZero::LevelZero(RobotControlData& data) : m_robotControlData(data)
 {}
@@ -16,7 +18,7 @@ void LevelZero::Execute()
 
 bool LevelZero::IsFinished()
 {
-    return (m_robotControlData.elevatorOutput.presentLevel == 0);
+    return  0;
 }
 
 void LevelZero::End(bool interrupted)

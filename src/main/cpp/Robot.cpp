@@ -15,12 +15,16 @@
 #include "cmds/LevelZero.h"
 #include "cmds/ClawIn.h"
 #include "cmds/ClawOut.h"
+#include "cmds/LevelTop.h"
 
 Robot::Robot() {
   m_cam = std::make_shared<PhotonVisionCamera>("Arducam_OV9281_USB_Camera", ratbot::VisionConfig::ROBOT_TO_CAMERA);
   
 
-  pathplanner::NamedCommands::registerCommand("level 0", std::make_shared<LevelZero>(_robot_control_data));
+  pathplanner::NamedCommands::registerCommand("LevelZero", std::make_shared<LevelZero>(_robot_control_data));
+  pathplanner::NamedCommands::registerCommand("LevelTop", std::make_shared<LevelTop>(_robot_control_data));
+  pathplanner::NamedCommands::registerCommand("ClawIn", std::make_shared<ClawIn>(_robot_control_data));
+  pathplanner::NamedCommands::registerCommand("ClawOut", std::make_shared<ClawOut>(_robot_control_data));
   //pathplanner::NamedCommands::registerCommand("claw in", std::make_shared<ClawIn>(_robot_control_data));
   //pathplanner::NamedCommands::registerCommand("claw out", std::make_shared<ClawOut>(_robot_control_data));
   SwerveInit();
