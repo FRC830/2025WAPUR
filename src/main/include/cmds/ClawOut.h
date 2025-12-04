@@ -18,5 +18,5 @@ public:
 private:
     RobotControlData& m_robotControlData;
     frc::Timer m_timer;
-    const double k_clawOutDuration = 0.2; 
+    const double k_clawOutDuration = 1; 
 };
