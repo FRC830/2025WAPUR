@@ -7,6 +7,8 @@ LevelTop::LevelTop(RobotControlData& data) : m_robotControlData(data)
 void LevelTop::Initialize()
 {
     m_robotControlData.elevatorInput.level = 0;
+    m_timer.Reset();
+    m_timer.Start();
 }
 
 void LevelTop::Execute()
@@ -16,10 +18,11 @@ void LevelTop::Execute()
 
 bool LevelTop::IsFinished()
 {
-    // 8.2 seconds
-    return 0;
+    // 9 seconds
+    return m_timer.Get().value() > 9;
 }
 
 void LevelTop::End(bool interrupted)
 {
+    m_timer.Stop();
 }

@@ -3,6 +3,7 @@
 #include <frc2/command/CommandHelper.h>
 #include "RobotControlData.h"
 #include "HAL/ElevatorHAL.h"
+#include <frc/Timer.h>
 
 
 class LevelTop : public frc2::CommandHelper<frc2::Command, LevelTop>
@@ -18,5 +19,6 @@ public:
 
 private:
     RobotControlData& m_robotControlData;
+    frc::Timer m_timer;
     //Elevator el;
 };

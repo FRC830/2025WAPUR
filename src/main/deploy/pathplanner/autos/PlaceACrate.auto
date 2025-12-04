@@ -7,7 +7,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "positioning auton"
+            "pathName": "MoveToShelf"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "LevelTop"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "ClawOut"
           }
         }
       ]
