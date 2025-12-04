@@ -4,6 +4,7 @@ void ElevatorManager::HandleInput(RobotControlData &robotControlData) {
     //SetElevatorLevel
     m_Elevator.SetElevatorLevel(robotControlData.elevatorInput.level);
     robotControlData.elevatorOutput.presentLevel = m_Elevator.GetElevatorLevel();
+    m_Elevator.runElevator(robotControlData.elevatorInput.manualState);
     
 }
 

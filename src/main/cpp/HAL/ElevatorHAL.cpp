@@ -104,9 +104,5 @@ void Elevator::runElevator(int state)
     {
         m_speed = -k_speed;
     }
-    else
-    {
-        m_speed = 0;
-    }
     m_elevatorMotor.Set(m_speed);
 } //1 is up, 0 is nothing, -1 is down

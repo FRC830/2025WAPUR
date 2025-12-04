@@ -23,6 +23,7 @@ struct SmartPlannerInput
 struct ElevatorInput{
     int targetLevel;
     int level;
+    int manualState;
 };
 
 struct ElevatorOutput{
