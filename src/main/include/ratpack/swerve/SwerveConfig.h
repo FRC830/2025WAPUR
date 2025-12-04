@@ -151,7 +151,7 @@ const bool GYRO_INVERTED = true;
 const frc::Rotation2d GYRO_ZERO_HEADING{units::degree_t{0.0f}};
 
 // --------------------------Swerve---------------------------
-const double MAX_DRIVE_SPEED_FPS = 18.0;
+const double MAX_DRIVE_SPEED_FPS = 5.0;
 const double MAX_ANGULAR_VELOCITY_DEGPS = 540.0;
 const double CONTROLLER_DEADZONE = 0.1;
 const int TURN_MOTOR_CURRENT_LIMIT = 20;
