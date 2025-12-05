@@ -37,15 +37,15 @@ void Elevator::SetElevatorLevel(int level)
     {
         //target level is above current position
         m_speed = k_speed; //move up
-        if (!m_Limit.Get()) // false = tripped
-        {
-            m_speed = 0;
-            offset = current_pos;
-            k_levels[0] = level_zero + offset;
-            k_levels[1] = level_one + offset;
-            k_levels[2] = level_two + offset;
-            k_levels[3] = level_three + offset;
-        }
+        // if (!m_Limit.Get()) // false = tripped
+        // {
+        //     m_speed = 0;
+        //     offset = current_pos;
+        //     k_levels[0] = level_zero + offset;
+        //     k_levels[1] = level_one + offset;
+        //     k_levels[2] = level_two + offset;
+        //     k_levels[3] = level_three + offset;
+        // }
         
         //std::cout << "move down" << std::endl;
     }
@@ -99,10 +99,13 @@ void Elevator::runElevator(int state)
     if(state==1)
     {
         m_speed = k_speed;
+        m_elevatorMotor.Set(m_speed);
+
     }
     else if(state==-1)
     {
         m_speed = -k_speed;
+        m_elevatorMotor.Set(m_speed);
+
     }
-    m_elevatorMotor.Set(m_speed);
 } //1 is up, 0 is nothing, -1 is down
