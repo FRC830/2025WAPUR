@@ -48,6 +48,7 @@ void Robot::DisabledPeriodic() {}
 void Robot::DisabledExit() {}
 
 void Robot::AutonomousInit() {
+  m_ballLauncher.ResetState();
   m_state = 0;
   m_auto = m_autoChooser.GetSelected();
 
@@ -95,18 +96,23 @@ void Robot::AutonomousPeriodic() {
 
 }
 
-void Robot::AutonomousExit() {}
+void Robot::AutonomousExit() {
+  m_ballLauncher.ResetState();
+}
 
 void Robot::TeleopInit() {
-
+  m_ballLauncher.ResetState();
 }
 
 void Robot::TeleopPeriodic() {
-   _controller_interface.UpdateRobotControlData(_robot_control_data);
-  _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
-  m_elevator.HandleInput(_robot_control_data);
-  m_claw.HandleInput(_robot_control_data);  
-  m_ballLauncher.HandleInput(_robot_control_data);
+  if (!IsAutonomous())
+  {
+    _controller_interface.UpdateRobotControlData(_robot_control_data);
+    _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
+    m_elevator.HandleInput(_robot_control_data);
+    m_claw.HandleInput(_robot_control_data);  
+    m_ballLauncher.HandleInput(_robot_control_data);
+  }
 }
 
 void Robot::TeleopExit() {}

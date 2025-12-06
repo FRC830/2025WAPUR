@@ -7,7 +7,7 @@ class BallManager {
     public:
         BallManager() = default; // constructor
         ~BallManager() = default; 
-        void ResetState(RobotControlData &robotControlData); //takes in robot control data to reset door??
+        void ResetState(); //takes in robot control data to reset door??
         void HandleInput(RobotControlData &robotControlData); //handles ball management logic
     private:
         Ball m_ball;

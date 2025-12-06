@@ -146,3 +146,14 @@ void BallManager::releaseOneBall() {
         break;
     }
 }
+
+void BallManager::ResetState() {
+    ballTimerState = 0;
+    ballTimer2State = 0;
+    releaseState = 0;
+    m_ballTimer.Stop();
+    m_ballTimer.Reset();
+    m_ballTimer2.Stop();
+    m_ballTimer2.Reset();
+    closeHatch();
+}

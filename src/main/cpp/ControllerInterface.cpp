@@ -20,19 +20,6 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
 
 void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
 {
-    if(m_copilot.GetAButtonPressed()){
-        controlData.elevatorInput.level = 0;
-    }
-    else if(m_copilot.GetBButtonPressed()){
-        controlData.elevatorInput.level = 1;
-    }
-    else if(m_copilot.GetXButtonPressed()){
-        controlData.elevatorInput.level = 2;
-    }
-    else if(m_copilot.GetYButtonPressed()){
-        controlData.elevatorInput.level = 3;
-    }
-    
     // if(m_copilot.GetRightY() > 0.1)
     // {
     //     controlData.elevatorInput.level = -1;
@@ -47,6 +34,23 @@ void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
     // {
     //     controlData.elevatorInput.manualState = 0;
     // }
+    // if (controlData.elevatorInput.manualState == 0){
+
+    // }
+    if(m_copilot.GetAButtonPressed()){
+        controlData.elevatorInput.level = 0;
+    }
+    else if(m_copilot.GetBButtonPressed()){
+        controlData.elevatorInput.level = 1;
+    }
+    else if(m_copilot.GetXButtonPressed()){
+        controlData.elevatorInput.level = 2;
+    }
+    else if(m_copilot.GetYButtonPressed()){
+        controlData.elevatorInput.level = 3;
+    }
+    
+    
 }
 
 void ControllerInterface::UpdateBallInput(RobotControlData &controlData)
